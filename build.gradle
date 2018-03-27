@@ -1,0 +1,37 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.RELEASE'
+	}
+	repositories {
+	
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.moj'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.kie:kie-ci:7.6.0.Final')
+	compile('org.kie:kie-spring:7.6.0.Final')
+	compile('org.drools:drools-compiler:7.6.0.Final')
+	compile('com.laa:case-model:0.0.1-SNAPSHOT')
+	
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
